@@ -29,7 +29,7 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
   let linkedInName = variables.linkedin.split(" ").join("-");
-  console.log(linkedInName);
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -70,11 +70,7 @@ function render(variables = {}) {
         </div>
     `;
 }
-/* Tienes un pequeño error en los links de instagram y linkedin,
- el de instagram esta mal nombrada propiedad de la variable
-  y en el otro tiene un "/" al comienzo del href que no deberia estar ahi,
-   adicional a esto la estructura de linkedin es linkedin.com/in/user... 
-   Importante el /in/ porqué sino no nos redirige al perfil del usuario */
+
 
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
