@@ -28,7 +28,8 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  let linkedInName = variables.linkedin.split(" ").join("-");
+  console.log(linkedInName);
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -58,17 +59,22 @@ function render(variables = {}) {
             <li><a href="/${
               variables.linkedin === null
                 ? "https://linkedin.com/school/4geeksacademy"
-                : `https://linkedin.com/${variables.linkedin}`
+                : `https://linkedin.com/in/${variables.linkedin}`
             }"><i class="fab fa-linkedin"></i></a></li>
             <li><a href="${
               variables.instagram === null
                 ? "https://instagram.com/4geeksacademy"
-                : `https://instagram.com/${variables.instragram}`
+                : `https://instagram.com/${variables.instagram}`
             }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
+/* Tienes un pequeño error en los links de instagram y linkedin,
+ el de instagram esta mal nombrada propiedad de la variable
+  y en el otro tiene un "/" al comienzo del href que no deberia estar ahi,
+   adicional a esto la estructura de linkedin es linkedin.com/in/user... 
+   Importante el /in/ porqué sino no nos redirige al perfil del usuario */
 
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
